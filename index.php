@@ -70,6 +70,7 @@ $news = mysqli_query($con,"select * from news");
             echo "<img src=images/news/" . $new['image'] . ">";
             echo "</div>";
         }
+        
         ?>
     </div>
         </section>

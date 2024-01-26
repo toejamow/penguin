@@ -132,6 +132,7 @@ input {
     color: #D9DADB;
     background-color: #5b6167;
     border-radius: 10px;
+    border: 1px solid black;
 }
 
 select {
@@ -157,7 +158,7 @@ form {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #4B5157;
+    background-color: #4e6276;
     border-radius: 20px;
     width: 27%;
     padding: 20px 0;
@@ -172,6 +173,7 @@ form {
     font-family: 'Raleway', sans-serif;
     background-color: #D9DADB;
     color: #000;
+    border: none;
 }
 
 label {
