@@ -1,28 +1,42 @@
-
 <?php
+include "connect.php";
 
-$userImages = $_FILES["userImages"];
-$userTitle = $_POST["userTitle"];
-$userText = $_POST["userText"];
-$userCategory = $_POST["userCategory"];
-$types = ['image/jpeg', 'image/png'];
-if (mb_strlen($userTitle)>20){
-echo "<p>слишком много букв <br></р›";
-};
+// $newImage = $_FILES["userImages"];
+// $newTitLe = $_POST["userTitle"];
 
-foreach($types as $value) {
-if ($userImages[ 'type'] == $value){
-echo 'ок картинка есть <br>';
-}
-};
-if (is_string($userTitle) && is_string($userText) && is_string($userCategory)) {
-    echo 'ок норм текст <br>';
-} else {
-    echo 'нужны буковки <br>';
-}
+// $types = ['image/jpeg', 'image/png'];
 
-echo '<br>Введённые данные:' . '<br>';
-echo 'Заголовок: ' . $userTitle . '<br>';
-echo 'Текст: ' . $userText . '<br>';
-echo 'Категория: ' . $userCategory . '<br>';
+// $newText = $_POST["userText"];
+// $newCategory = $_POST["userCategory"];
+// $types = ['image/jpeg', 'image/png'];
+// if (mb_strlen($newText) < 20) {
+//     echo "кол-во символов: ок <br>";
+// } else {
+//     echo "кол-во символов: не ок<br>";
+// }
+// ;
+
+// foreach ($types as $value) {
+//     if ($newImage[ 'type'] == $value) {
+//         echo 'расширение картинки: ок <br>';
+//     }
+// }
+// ;
+// if (is_string($newTitLe) && is_string($newText)) {
+//     echo 'кол-во символов в тексте: ок<br>';
+// }
+
+$image = $_FILES["userImages"]["name"];
+$title = $_POST["userTitle"];
+$text = $_POST["userText"];
+
+$insert = "INSERT INTO `news`(`image`, `title`, `content`, `category_id`) VALUES ('$image','$title','$text', 1)";
+
+if(mysqli_query($con, $insert)){ 
+    echo "новая запись добавлена"; 
+    } else {
+        echo "ошибка ". $insert. "<br>". mysqli_error($con); 
+    }
+
+
 ?>
