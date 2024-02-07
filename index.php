@@ -28,6 +28,9 @@ $news = mysqli_query($con, "select * from news where category_id = '$id_cat'");
         <section class="last-news">
         <div class="news">
         <?php
+
+if(mysqli_num_rows($news)==0){ 
+    echo "нет новостей"; } else {
         while($new = mysqli_fetch_assoc($news)) {
             echo "<p id='post_id'>Пост". " " . $new['news_id'] . "<p>";
             echo "<div class='card'>";
@@ -39,6 +42,7 @@ $news = mysqli_query($con, "select * from news where category_id = '$id_cat'");
             echo "<img src=images/news/" . $new['image'] . ">";
             echo "</div>";
         }
+    }
         
         ?>
     </div>
