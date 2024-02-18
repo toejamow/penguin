@@ -31,7 +31,7 @@ if($id_new) $new_info = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM News
         while($new = mysqli_fetch_assoc($news)) {
             $new_id = $new['news_id'];
             echo "<a href='index.php?new=$new_id'>"."Пост"." ".$new_id."</a>";
-            echo "<a href='deleteNew.php?new=$new_id'>". "<img id='trashimg' src='/images/trash.png' alt='Удалить'>" . "</a>" . "<br>";
+            echo "<a href='deleteNew.php?new=$new_id'>" ."Del"."</a>" . "<br>";
         }
         ?>
         <a href="/admin">+</a>

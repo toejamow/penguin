@@ -1,17 +1,29 @@
 <?php
-include "connect.php"; // выражение include включает и выполняет указанный файл
-include "header.php";
+include "connect.php"; // выражение include включает и выполняет указанный файл, файл для подключения БД
+include "header.php"; 
 
-$query_get_category = "select * from categories";
+$sort = isset($_GET["sort"])?$_GET["sort"]:false;
+$filter = isset($_GET["filter"])?$_GET["filter"]:false;
 
-$categories = mysqli_fetch_all(mysqli_query($con, $query_get_category)); //получаем результат запроса из переменной query_get_category
-// и преобразуем его в двумерный массив, где каждый элемент это массив с построчным получением кортежей из таблицы результата запроса
+$param = "";
 
-$news = mysqli_query($con,"select * from news");
+$query = "select * from news";
 
-$id_cat = isset($_GET['cat']) ? ($_GET['cat']) : false;
+if($sort) {
+    $query = "SELECT * FROM News ORDER BY publish_date $sort";
+} 
 
-$news = mysqli_query($con, "select * from news where category_id = '$id_cat'");
+if($filter) {
+    $param .= "filter=$filter";
+    $query = "select * from news where category_id = $filter"; 
+}
+
+if($sort && $filter) {
+    $query = "select * from news where category_id = $filter order by publish_date $sort";
+}
+
+$news = mysqli_query($con, $query);
+
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +39,16 @@ $news = mysqli_query($con, "select * from news where category_id = '$id_cat'");
     <main>
         <section class="last-news">
         <div class="news">
+        <ul class="list-group list-group-horizontal mt-5 mb-3">
+                <li class="list-group-item">
+                    <a href="/?sort=ASC<?=($param!='')?'&'.$param:''?>"><img width="20" src="images/asc-sort.png" alt="asc"></a>
+                </li>
+                <li class="list-group-item">
+                    <a href="/?sort=DESC<?=($param!='')?'&'.$param:''?>"><img width="20" src="images/desc-sort.png" alt="desc"></a>
+                </li>
+            </ul>
         <?php
+        
 
 if(mysqli_num_rows($news)==0){ 
     echo "нет новостей"; } else {

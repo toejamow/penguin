@@ -49,7 +49,7 @@ $news = mysqli_query($con, "select * from news");
     <div class="section">
     <?php
         foreach($categories as $category){
-            echo "<li id='styleme'><a href ='/?cat=".$category[0]."'".">$category[1]</a></li>";
+            echo "<li id='styleme'><a href ='/?filter=".$category[0]."'".">$category[1]</a></li>";
         }
         ?>
     </div>
