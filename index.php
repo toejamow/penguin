@@ -22,6 +22,10 @@ if($sort && $filter) {
     $query = "select * from news where category_id = $filter order by publish_date $sort";
 }
 
+if($searching) {
+    $query = "SELECT * FROM NEWS WHERE title LIKE '%$searching%'";
+}
+
 $news = mysqli_query($con, $query);
 
 ?>

@@ -21,7 +21,7 @@ include "header.php";
 
 <h1>Создать публикацию</h1>
 
-    <form action="createNewValid.php" method="POST" enctype="multipart/form-data" class="newsForm">
+    <form class="form_create" action="createNewValid.php" method="POST" enctype="multipart/form-data" class="newsForm">
 
     <label for="userTitle">Напишите заголовок...</label>
     <input type="text" id="userTitle" name="userTitle">
