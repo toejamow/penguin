@@ -1,4 +1,5 @@
 <?php 
+session_start();
 $login = strip_tags(trim($_POST['login'])); // Удаляет все лишнее и записываем значение в переменную //$login
 $pass = strip_tags(trim($_POST['pass'])); 
 $email = strip_tags(trim($_POST['email'])); 
@@ -17,5 +18,9 @@ if(!empty($user1)){
 	exit();
 }
 mysqli_query($con,"INSERT INTO `users` (`username`, `password`, `email`)VALUES('$login', '$pass', '$email')");
+
+$_SESSION["user_id"] = mysqli_insert_id($con);
+
+
 
 header('Location:index.php');

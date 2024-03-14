@@ -185,7 +185,6 @@ label {
 
 .last-news {
     width: 100%;
-    height: 100vh;
 }
 
 #text {
@@ -332,7 +331,8 @@ p {
 
 .post_img {
     display: flex;
-    justify-content: center;;
+    justify-content: center;
+    ;
     width: 300px;
     height: 300px;
     background-repeat: no-repeat;
@@ -355,15 +355,15 @@ li {
 }
 
 .search {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: #4e6276;
-        border-radius: 20px;
-        width: 450px;
-        padding: 20px 0;
-        height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #4e6276;
+    border-radius: 20px;
+    width: 450px;
+    padding: 20px 0;
+    height: 420px;
 }
 
 .newsForm {
@@ -378,3 +378,36 @@ li {
     height: 420px;
 }
 
+.pagination {
+    display: flex;
+    flex-direction: row;
+}
+
+.card_comms {
+    display: flex;
+    flex-direction: column;
+    background-color: #fce773;
+    width: 60%;
+    margin-bottom: 5%;
+    padding: 5%;
+    border-radius: 0 0 45px 45px;
+    box-shadow: 0px 9px 12px 0px rgb(0 0 0 / 33%);
+}
+
+.idk label {
+    color: black;
+}
+
+.header-div3 li {
+    list-style: none;
+    padding: 0;
+}
+
+#comm_date {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.card-body p {
+    font-size: 15px;
+}

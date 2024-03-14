@@ -1,4 +1,5 @@
 <?php
+session_start();
 require ("connect.php");
 
 $login = strip_tags(trim($_POST['login']));
@@ -17,6 +18,6 @@ else if(count($user) == 1){
 	exit();
 }
 
-setcookie('user', $user['username'], time() + 3600, "/");
+$_SESSION["user_id"] = $user['user_id'];
 
-header('Location: admin/index.php');
+header('Location: account.php');
