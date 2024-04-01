@@ -63,9 +63,6 @@ $comments = mysqli_fetch_all($commQuery);
 
         <div class="card_comms">
 
-
-
-
         <?php if(mysqli_num_rows($commQuery)) {
             foreach ($comments as $comment) { ?>
             

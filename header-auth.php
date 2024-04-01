@@ -29,7 +29,7 @@ $news = mysqli_query($con, "select * from news");
         </div>
         <div class="header-div3">
             <img src="images/profile.png" alt="">
-            <a href="../exit.php">Выйти</a>
+            <a href="../signout.php">Выйти</a>
         </div>
     </div>
     <hr class="hr2">

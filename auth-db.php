@@ -16,8 +16,8 @@ if(count($user) == 0){
 else if(count($user) == 1){
 	echo "Логин или пароль введены неверно.";
 	exit();
-}
-
-$_SESSION["user_id"] = $user['user_id'];
-
-header('Location: account.php');
+} else {
+	$_SESSION["user_id"] = $user["user_id"];
+  
+	header('Location: page.php');
+  }
